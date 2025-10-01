@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Planning | Dreams Investment</title>
+  <meta name="description" content="Planning services by Dreams Investment - Parth C. Shah">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<nav class="navbar">
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center">
+    <div class="brand">Dreams Investment</div>
+    <div class="navlinks" id="navlinks">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="investments.html">Investments</a>
+      <a href="insurance.html">Insurance</a>
+      <a href="loans.html">Loans</a>
+      <a href="planning.html">Planning</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" role="banner">
+  <div class="slide active" data-index="0"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=8" alt="hero 0"><div class="overlay"><h1>Planning</h1><p>Personalized Planning & advisory — Parth C. Shah</p></div></div>
+<div class="slide" data-index="1"><img src="assets/photo-1454165804606-c3d57bc86b40.jpeg" alt="hero 1"><div class="overlay"><h1>Planning</h1><p>Personalized Planning & advisory — Parth C. Shah</p></div></div>
+<div class="slide" data-index="2"><img src="assets/photo-1543269865-cbf427effbad.jpeg" alt="hero 2"><div class="overlay"><h1>Planning</h1><p>Personalized Planning & advisory — Parth C. Shah</p></div></div>
+  <div class="slider-controls"><button class="slider-btn" id="prevBtn" aria-label="Previous">‹</button><button class="slider-btn" id="nextBtn" aria-label="Next">›</button></div>
+</header>
+
+<section class="section"><div class="container"><div class="card"><h2>Financial Planning</h2>
+  <p><strong>Solution-based financial planning</strong> ensures that your life goals are met with clarity and confidence. 
+    By focusing on specific milestones like retirement and your child’s future, it helps create tailored strategies 
+    that balance growth, safety, and liquidity.</p>
+
+ <p><strong>Retirement planning</strong> secures your golden years with a steady income stream and financial independence. 
+    It builds a safety net against inflation, rising medical costs, and lifestyle needs, so you can enjoy peace of mind 
+    without depending on others.</p>
+
+ <p>Similarly, <strong>child planning</strong> ensures that your children’s education, aspirations, and dreams are 
+    financially supported. By starting early and investing wisely, you can provide for their future without compromising 
+    your current financial stability. Together, these plans turn aspirations into achievable, measurable outcomes.</p>
+
+</div></div></section>
+<section class="options"><div class="container"><h2 style="text-align:center;margin-bottom:22px">Planning Services</h2>
+  <div class="options-grid grid-3">
+    <div class="option-card card"><h3>Retirement Planning</h3><p>Corpus calculation and withdrawal strategies.</p></div>
+    <div class="option-card card"><h3>Child Planning</h3><p>Financial care for your child’s brighter future</p></div>
+    <div class="option-card card"><h3>Tax</h3><p>Efficient tax planning & instruments</p></div></div></div>
+</section>
+<section class="section"><div class="container"><h2>FAQs</h2><div class="faq"><div class="faq-item"><div class="faq-q"><strong>What is financial planning?</strong><div>+</div></div><div class="faq-a"><p>Setting goals and building a roadmap.</p></div></div><div class="faq-item"><div class="faq-q"><strong>Review frequency?</strong><div>+</div></div><div class="faq-a"><p>Annually or after major life events.</p></div></div></div></div></section>
+
+
+<footer class="footer">
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+    <div>© <span id="year"></span> Dreams Investment | Parth C. Shah</div>
+    <div>Phone: <a href="tel:+919662014001">+91 9662014001</a> | Email: <a href="mailto:dreams.investment176@gmail.com">dreams.investment176@gmail.com</a></div>
+  </div>
+</footer>
+
+<div style="position:fixed;right:18px;bottom:18px;z-index:80"><a href="https://wa.me/919662014001" class="btn-cta">💬 WhatsApp</a></div>
+
+<script>
+(function(){
+  // Active nav highlighting
+  var links = document.querySelectorAll('#navlinks a');
+  var file = window.location.pathname.split('/').pop() || 'index.html';
+  for(var i=0;i<links.length;i++){ if(links[i].getAttribute('href')===file){ links[i].classList.add('active'); } }
+  // Slider autoplay + controls
+  var slides = document.querySelectorAll('.slide'); if(slides.length>0){
+    var idx=0; var total=slides.length; var interval=5500;
+    var show=function(n){ for(var k=0;k<slides.length;k++){ slides[k].classList.remove('active'); } slides[n].classList.add('active'); idx=n; };
+    var next=function(){ show((idx+1)%total); };
+    var prev=function(){ show((idx-1+total)%total); };
+    var timer = setInterval(next, interval);
+    var nb = document.getElementById('nextBtn'), pb = document.getElementById('prevBtn');
+    if(nb){ nb.addEventListener('click', function(){ next(); clearInterval(timer); timer=setInterval(next, interval); }); }
+    if(pb){ pb.addEventListener('click', function(){ prev(); clearInterval(timer); timer=setInterval(next, interval); }); }
+  }
+  // update year
+  var y = document.getElementById('year'); if(y) y.textContent = new Date().getFullYear();
+})();
+</script>
+
+
+
+</body>
+</html>
